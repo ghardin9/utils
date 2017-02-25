@@ -1,4 +1,5 @@
 import requests
+import argparse
 
 def test(address):
     paramcount = 8000
@@ -14,5 +15,10 @@ def test(address):
 
 
 if __name__ == '__main__':
-    address = 'http://54.202.82.13/'
+    parser = argparse.ArgumentParser()
+    parser.add_argument("address",
+                        help="choose a target website")
+    args = parser.parse_args()
+    address = args.address
     print test(address)
+    
